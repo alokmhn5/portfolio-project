@@ -8,6 +8,15 @@ class Blog(models.Model):
     text = models.TextField()
     image = models.ImageField(upload_to='images/')
 
+    def __str__(self):
+        return self.topic
+
+    def summary(self):
+        return self.text[:100]
+
+    def created_on_pretty(self):
+        return self.created_on.strftime('%b %e %Y')
+
 #add  the blog app to settings
 #Create a migration
 #migrate
